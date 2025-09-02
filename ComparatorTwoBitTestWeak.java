@@ -11,7 +11,7 @@ public void zero_zero() {
 		  
 			  
 	  
-    		setPinUnsigned("InputA", a);
+    	setPinUnsigned("InputA", a);
    		setPinUnsigned("InputB", b);
 		
 		run();
