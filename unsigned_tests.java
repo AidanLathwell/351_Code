@@ -9,7 +9,7 @@ import static edu.gvsu.dlunit.DLUnit.*;
  * Ensure your circuit has 16-bit inputs named "InputA" and "InputB",
  * and a 16-bit output named "Output", and optionally a 1-bit "CarryOut".
  */
-public class Adder16BitTest {
+public class unsigned_tests {
 
     // Helper to test a single case
     private void testAddition(int a, int b) {
@@ -21,14 +21,14 @@ public class Adder16BitTest {
         setPinUnsigned("InputB", b);
         run();
 
-        int actualSum = readPinUnsigned("Output");
+        long actualSum = readPinUnsigned("Output");
 
         // Check sum
         Assert.assertEquals("Sum mismatch for A=" + a + " B=" + b,
                 expectedSum, actualSum);
 
         
-        int actualCarry = readPinUnsigned("CarryOut");
+        long actualCarry = readPinUnsigned("CarryOut");
         Assert.assertEquals("CarryOut mismatch for A=" + a + " B=" + b,
             expectedCarry, actualCarry);
     }
