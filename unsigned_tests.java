@@ -10,7 +10,7 @@ import static edu.gvsu.dlunit.DLUnit.*;
  *  - 16-bit output pin: "Sum"
  *  - Optional 1-bit overflow pin: "CarryOut"
  */
-public class Adder16BitTest {
+public class unsigned_tests {
 
     // Helper method to run a single test case
     private void testAddition(int a, int b) {
@@ -27,18 +27,16 @@ public class Adder16BitTest {
 
         // Read output pins
 
-        int actualSum = readPinUnsigned("Sum");
+        long actualSum = readPinUnsigned("Sum");
 
         // Check Sum
         Assert.assertEquals("Sum mismatch for A=" + a + " B=" + b,
                 expectedSum, actualSum);
 
         // Check CarryOut if it exists
-        if (pinExists("CarryOut")) {
-            int actualCarry = readPinUnsigned("CarryOut");
-            Assert.assertEquals("CarryOut mismatch for A=" + a + " B=" + b,
-                    expectedCarry, actualCarry);
-        }
+        long actualCarry = readPinUnsigned("CarryOut");
+        Assert.assertEquals("CarryOut mismatch for A=" + a + " B=" + b,
+                expectedCarry, actualCarry);
     }
 
     @Test
